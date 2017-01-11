@@ -5,6 +5,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 
 import style from './style.css';
 
+
 const styles = {
     customWidth: {
         width: 256,
@@ -14,23 +15,22 @@ const styles = {
 class CreateQuestion extends Component {
     constructor(props) {
         super(props);
-        this.state = { value: 1 };
-        this.handleChange = this.handleChange.bind(this);
+        console.log(props);
     }
-
-    handleChange = (event, index, value) => this.setState({ value });
 
     render() {
         return (
             <div className={style.wrapper}>
-                <span className={style.labelSpan}>Create a New Quation</span>
+                <span className={style.labelSpan}>Create a New Question</span>
                 <DropDownMenu
-                    value={this.state.value}
-                    onChange={this.handleChange}
+                    value={this.props.questionType}
+                    onChange={this.props.onChangeQuestion}
                     style={styles.customWidth}
                     autoWidth={false}
                     >
-                    <MenuItem value={1} primaryText="Quation Type" />
+                    {
+                        this.props.questionTypes.map((value, key) => <MenuItem key={key} value={key} primaryText={value} />)
+                    }
                 </DropDownMenu>
                 <RaisedButton label="Create" primary={true} />
             </div>
@@ -39,7 +39,9 @@ class CreateQuestion extends Component {
 }
 
 CreateQuestion.propTypes = {
-
+    onChangeQuestion: PropTypes.func.isRequired,
+    questionType: PropTypes.number.isRequired,
+    questionTypes: PropTypes.array.isRequired,
 };
 
 export default CreateQuestion;
