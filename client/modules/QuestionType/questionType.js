@@ -7,9 +7,9 @@ import Header from './components/Header';
 const questionTypes = [
     'True False',
     'Multiple Choice',
-    'Drag the Choices',
+    'Drag to Choices',
     'Drag to Match',
-    'Drag t0 Blanks',
+    'Drag to Blanks',
     'Drag to Orders',
     'Short Answers',
     'Image Map',

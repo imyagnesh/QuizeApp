@@ -24,7 +24,7 @@ class Settings extends Component {
 
     render() {
         return (
-            <div className={baseStyle.wrapper} style={{ backgroundColor: 'red' }}>
+            <div className={baseStyle.wrapper}>
                 <span className={style.labelSpan} >Settings</span>
                 <div className={baseStyle.contentWrapper}>
                     <div className={style.innerDiv}>
