@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import FlatButton from 'material-ui/FlatButton';
 import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
+import style from './style.css';
 
 class Header extends Component {
     constructor(props) {
@@ -16,15 +17,15 @@ class Header extends Component {
 
     render() {
         return (
-            <div>
+            <div className={style.wrapper}>
                 <span>{this.props.questionType}</span>
-                <nav>
+                <div className={style.nav}>
                     <FlatButton label="Duplicate" primary />
                     <FlatButton label="Preview" primary />
-                    <DropDownMenu value={this.state.value} onChange={this.handleChange}>
+                    <DropDownMenu value={this.state.value} onChange={this.handleChange} style={{ height: 36 }} underlineStyle={{ display: 'none' }} labelStyle={{ lineHeight: '36px' }} iconStyle={{ top: '6px' }}>
                         <MenuItem value={0} primaryText="More" />
                     </DropDownMenu>
-                </nav>
+                </div>
             </div>
         );
     }
